@@ -15,7 +15,7 @@ import Providers from './providers';
       {/* Message Input  */}
       <MessageList initalMessages={initialMessages}/>
       {/* Chat Messages */}
-      <ChatInput session = {session} />
+      <ChatInput  />
     </Providers>
   )
 }

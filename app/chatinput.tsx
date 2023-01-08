@@ -4,11 +4,10 @@ import { FormEvent, useState } from "react"
 import useSWR from 'swr' ; 
 import {v4 as uuid} from 'uuid';
 import { Message } from "../typings";
-import {  unstable_getServerSession } from "next-auth";
-type Props = {
-  session: Awaited<ReturnType<typeof unstable_getServerSession>> ;
-}
-export default function ChatInput({session}:Props) {
+import { useSession } from "next-auth/react";
+
+export default function ChatInput() {
+  const {data:session} = useSession();
   const [text , setText]=useState("");
   
   const {data:messages , error , mutate } = useSWR('/api/getMessages',fetcher);
