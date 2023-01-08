@@ -3,9 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Logoutbutton from './logoutbutton';
+let session:any  ;
+const start = async () => {
 
-async function  Header ()  {
-  const session = await unstable_getServerSession();
+   session = await unstable_getServerSession();
+}
+function  Header ()  {
+  start();
   if(session)
   return (
     <header className='sticky flex top-0 z-50 bg-white justify-between items-center p-10 shadow-sm'>
